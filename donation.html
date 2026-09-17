@@ -22,6 +22,8 @@
   gap: 28px;
   align-items: flex-start;
   box-sizing: border-box;
+  max-width: 100%;
+  overflow: hidden;
 }
 .donate-qr-card .qr-img-wrap {
   flex: 0 0 auto;
@@ -38,9 +40,17 @@
 .donate-qr-card .qr-info {
   flex: 1 1 0;
   min-width: 0; /* prevents flex child overflow */
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .donate-qr-card .qr-info h3 { margin: 0 0 10px; font-size: clamp(1.1rem, 2vw, 1.35rem); }
-.donate-qr-card .qr-info p { margin: 0 0 8px; font-size: 0.95rem; line-height: 1.5; }
+.donate-qr-card .qr-info p {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 .donate-qr-card .qr-tag {
   display: inline-block;
   background: var(--gold-600, #b8860b);
@@ -57,6 +67,7 @@
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.82rem;
   word-break: break-all;
+  overflow-wrap: anywhere;
   background: #f0ebe0;
   padding: 6px 10px;
   border-radius: 6px;
@@ -64,8 +75,24 @@
   margin: 4px 0 10px;
 }
 @media (max-width: 520px) {
-  .donate-qr-card { flex-direction: column; align-items: center; text-align: center; }
-  .donate-qr-card .upi-id { text-align: left; }
+  .donate-qr-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 14px;
+    gap: 18px;
+  }
+  .donate-qr-card .qr-img-wrap img {
+    width: 160px;
+    height: 160px;
+  }
+  .donate-qr-card .qr-info p {
+    font-size: 0.88rem;
+  }
+  .donate-qr-card .upi-id {
+    text-align: left;
+    font-size: 0.75rem;
+  }
 }
 </style>
 </head>
